@@ -1,0 +1,112 @@
+<html>
+
+<body>
+
+<table>
+
+<tbody>
+
+<tr>
+
+<td valign="top" width="300"  style="font-family:monospace">
+
+<h2>FORTE user manual</h2>
+
+&#9679; Installation under Ubuntu<br>
+
+&#9675; <a href="config.html">Configuring FORTE</a><br>
+
+&#9675; <a href="usage.html">Using FORTE</a><br>
+
+&#9675; <a href="dome.html">Dome commands</a><br>
+
+&#9675; <a href="ccd.html">CCD commands</a><br>
+
+&#9675; <a href="mount.html">Mount commands</a><br>
+
+&#9675; <a href="focuser.html">Focuser commands</a><br>
+
+&#9675; <a href="misc.html">Other commands</a>
+
+</td>
+
+<td style="font-family:monospace">
+
+<h3>Installation under Ubuntu</h3>
+
+<p>If you plan to use a FLI CCD camera along with the INDI Library driver, your computer must have Ubuntu version 15.10 or higher (check requirements at indilib.org website).
+
+<hr>
+
+<h4>Requirements for installation/usage</h4>
+
+<p>Hardware: RAM: ; disk space: ; processor: .<br>
+Software: Python => ver., APEX => ver., astropy => ver., numpy => ver., scipy => ver.; star catalogs: e.g. Tycho.
+
+<hr>
+
+<h4>Installation of dependencies: astropy, numpy and scipy</h4>
+
+<p>To make the installation of these dependencies simple, first install the python-pip package:
+
+<p style="background-color:lightgray">sudo apt-get install python-pip
+
+<p>Then install all three dependencies by one command:
+
+<p style="background-color:lightgray">sudo pip install -U astropy numpy scipy
+
+<hr>
+
+<h4>Installation of dependencies: APEX</h4>
+
+<p>Please, refer to the APEX user manual.
+
+<p>
+
+<hr>
+
+<h4>Installation of FORTE's server part</h4>
+
+<p>Go to the folder where the tarball forte-0.15.0.tar.gz is stored and unpack it:
+
+<p style="background-color:lightgray">tar xvzf forte-0.15.0.tar.gz
+
+<p>A new folder forte-0.15.0 will be created with many files unpacked into it. Change to that folder:
+
+<p style="background-color:lightgray">cd forte-0.15.0
+
+<p>
+
+<p>
+
+<hr>
+
+<h4>Installation of FORTE's client part</h4>
+
+<p>Go to the folder where the tarball forte_client-0.15.0.tar.gz is stored and unpack it:
+
+<p style="background-color:lightgray">tar xvzf forte_client-0.15.0.tar.gz
+
+<p>A new folder forte_client-0.15.0.tar.gz will be created with many files unpacked into it. Change to that folder:
+
+<p style="background-color:lightgray">cd forte_client-0.15.0.tar.gz
+
+<p>
+
+<p>
+
+<hr>
+
+<p> last updated: 15.10.2017
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</body>
+
+<html>
