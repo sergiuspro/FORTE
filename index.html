@@ -34,14 +34,16 @@
 
 <h3>Installation under Ubuntu</h3>
 
-<p>If you plan to use a FLI CCD camera along with the INDI Library driver, your computer must have Ubuntu version 15.10 or higher (check requirements at indilib.org website).
+<p>Notice: FORTE (Facility for Operating Robotic TElescopes) is distributed under a proprietary license for ISON members only.
+<p>Notice: If you plan to use a FLI CCD camera along with the INDI Library driver, your computer must have Ubuntu version 15.10 or higher (check requirements at <a href="http://indilib.org/download/ubuntu.html">indilib.org</a> website).
 
 <hr>
 
-<h4>Requirements for installation/usage</h4>
+<h4>Installation of dependencies: build-essential, gfortran and python-dev</h4>
 
-<p>Hardware: RAM: ; disk space: ; processor: .<br>
-Software: Python => ver., APEX => ver., astropy => ver., numpy => ver., scipy => ver.; star catalogs: e.g. Tycho.
+<p>Install all packages:
+
+<p style="background-color:lightgray">sudo apt-get install build-essential gfortran python-dev
 
 <hr>
 
@@ -51,17 +53,40 @@ Software: Python => ver., APEX => ver., astropy => ver., numpy => ver., scipy =>
 
 <p style="background-color:lightgray">sudo apt-get install python-pip
 
-<p>Then install all three dependencies by one command:
+<p>Then install all three dependencies:
 
 <p style="background-color:lightgray">sudo pip install -U astropy numpy scipy
 
 <hr>
 
+<h4>Installation of dependencies: Tycho-2 star catalogue</h4>
+
+<p>Create a directory "Tycho-2" anywhere in user's home directory, e.g.:
+
+<p style="background-color:lightgray">mkdir ~/catalogs/Tycho-2
+
+<p>And put there all four files of the Tycho-2 catalogue: index.dat, suppl_1.dar, suppl_2.dat and tyc2.dat.
+
+<hr>
+
 <h4>Installation of dependencies: APEX</h4>
 
-<p>Please, refer to the APEX user manual.
+<p>Please, refer to the APEX user manual for its installation.
 
-<p>
+<p>If not yet available, create the directory .Apex in the user's home directory:
+
+<p style="background-color:lightgray">mkdir ~/.Apex
+
+<p>If not yet available, create in the .Apex directory the file apex.conf with any ASCII text editor, and add or edit the following entries in it filling in your Tycho-2 directory's path, observing site's latitude (positive for North), longitude (positive for East) and altitude - all three in decimal degrees, e.g.:
+
+<p style="background-color:lightgray">[apex.catalog.tyc2_reader]<br>
+cat_path = ~/catalogs/Tycho-2<br>
+astrometric_priority = 10<br>
+<br>
+[apex.sitedef]<br>
+latitude = 40.817566<br>
+longitude = 15.463387<br>
+altitude = 1256.21
 
 <hr>
 
@@ -71,13 +96,17 @@ Software: Python => ver., APEX => ver., astropy => ver., numpy => ver., scipy =>
 
 <p style="background-color:lightgray">tar xvzf forte-0.15.0.tar.gz
 
-<p>A new folder forte-0.15.0 will be created with many files unpacked into it. Change to that folder:
+<p>A new folder forte-0.15.0 will be created with subfolders and files unpacked into it. Change to that folder:
 
 <p style="background-color:lightgray">cd forte-0.15.0
 
-<p>
+<p>Build it:
 
-<p>
+<p style="background-color:lightgray">python setup.py build
+
+<p>Install it (notice the sudo command!):
+
+<p style="background-color:lightgray">sudo python setup.py install
 
 <hr>
 
@@ -91,13 +120,17 @@ Software: Python => ver., APEX => ver., astropy => ver., numpy => ver., scipy =>
 
 <p style="background-color:lightgray">cd forte_client-0.15.0.tar.gz
 
-<p>
+<p>Build it:
 
-<p>
+<p style="background-color:lightgray">python client_setup.py build
+
+<p>Install it (notice the sudo command!):
+
+<p style="background-color:lightgray">sudo python client_setup.py install
 
 <hr>
 
-<p> last updated: 15.10.2017
+<p>last updated: 06.11.2017
 
 </td>
 
