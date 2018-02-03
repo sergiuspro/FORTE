@@ -34,17 +34,81 @@
 
 <h3>CCD commands</h3>
 
-<p>TBD
+<p>All CCD-related commands begin with:
+
+<p style="background-color:lightgray">o.scope.imager.ccd.
 
 <hr>
 
-<h4>TBD</h4>
+<h4>CCD-commands related to the thermoelectric cooler (TEC)</h4>
 
-<p>TBD
+<p>Check if the TEC is enabled (output: True|None):
+
+<p style="background-color:lightgray">o.scope.imager.ccd.tec_is_enabled()
+
+<p>Get the current CCD temperature in Kelvin:
+
+<p style="background-color:lightgray">o.scope.imager.ccd.get_temperature()
+
+<p>Get the current ambient temperature in Kelvin:
+
+<p style="background-color:lightgray">o.scope.imager.ccd.get_ambient_temperature()
+
+<p>Get the current TEC power in percent:
+
+<p style="background-color:lightgray">o.scope.imager.ccd.get_tec_power()
+
+<p>Regulate the CCD temperature to the given setpoint in Kelvin:
+
+<p style="background-color:lightgray">o.scope.imager.ccd.start_task('regulate_temperature',setpoint=248.15).join()
+
+o.scope.imager.ccd.start_task('regulate_temperature',tec_state='',wait=bool).join()
+o.scope.imager.ccd.start_task('regulate_temperature',tec_power=float,wait=bool).join()
+o.scope.imager.ccd.start_task('regulate_temperature',setpoint=float,wait=bool).join()
+
+tec_state=enable|disable	to turn TEC on|off
+tec_power=0...100			to set power of TEC in percent of its full power
+setpoint=					to set temperature of TEC in Kelvins; special value 'auto'
+wait=True|False				to wait until the temperature stops changing (default=True)
+
+output #1: Regulating temperature: tec_state=%s, tec_power=%s, setpoint=%s
+output #2: 
 
 <hr>
 
-<p> last updated: 15.10.2017
+<h4>CCD-commands related to the image acquisition</h4>
+
+<p>
+
+<p style="background-color:lightgray">o.scope.imager.ccd.start_task('observe',target='',texp=int,nexp=int,exptype='',shutter='').join() #exptype OR type ????
+
+<hr>
+
+<h4>Other CCD-commands</h4>
+
+<p>Check the current state of the CCD (output: online|standby|suspend|offline):
+
+<p style="background-color:lightgray">o.scope.imager.ccd.state
+
+<p>Change the current state of the CCD:
+
+<p style="background-color:lightgray">o.scope.imager.ccd.start_task('set_state','state').join()
+
+<p>Here <i>state</i> can have one of the following values:
+
+<p style="background-color:lightgray">state='online'|'standby'|'suspend'|'offline'
+
+<p>Check if the given capability is supported by the CCD (output: True|False):
+
+<p style="background-color:lightgray">o.scope.imager.ccd.supports(cap)
+
+<p>Here <i>cap</i> can have one of the following values:
+
+<p style="background-color:lightgray">cap='shutter'|'tec_stabilization'|'tec_set_power'|'tec_get_power'|'tec'|'ambient_temperature'|'chip_temperature'|'trigger_input'|'trigger_output'
+
+<hr>
+
+<p> last updated: 04.01.2018
 
 </td>
 
