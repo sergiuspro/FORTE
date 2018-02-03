@@ -42,26 +42,27 @@
 
 <h4>CCD-commands related to the thermoelectric cooler (TEC)</h4>
 
-<p>Check if the TEC is enabled (output: True|None):
+<p>1) Check if the TEC is enabled (output: True|None):
 
 <p style="background-color:lightgray">o.scope.imager.ccd.tec_is_enabled()
 
-<p>Get the current CCD temperature in Kelvin:
+<p>2) Get the current CCD temperature in Kelvin:
 
 <p style="background-color:lightgray">o.scope.imager.ccd.get_temperature()
 
-<p>Get the current ambient temperature in Kelvin:
+<p>3) Get the current ambient temperature in Kelvin:
 
 <p style="background-color:lightgray">o.scope.imager.ccd.get_ambient_temperature()
 
-<p>Get the current TEC power in percent:
+<p>4) Get the current TEC power in percent:
 
 <p style="background-color:lightgray">o.scope.imager.ccd.get_tec_power()
 
-<p>Regulate the CCD temperature to the given setpoint in Kelvin:
+<p>5) Regulate the CCD temperature to the given setpoint in Kelvin:
 
 <p style="background-color:lightgray">o.scope.imager.ccd.start_task('regulate_temperature',setpoint=248.15).join()
 
+<p>
 o.scope.imager.ccd.start_task('regulate_temperature',tec_state='',wait=bool).join()
 o.scope.imager.ccd.start_task('regulate_temperature',tec_power=float,wait=bool).join()
 o.scope.imager.ccd.start_task('regulate_temperature',setpoint=float,wait=bool).join()
@@ -86,11 +87,11 @@ output #2:
 
 <h4>Other CCD-commands</h4>
 
-<p>Check the current state of the CCD (output: online|standby|suspend|offline):
+<p>1) Check the current state of the CCD (output: online|standby|suspend|offline):
 
 <p style="background-color:lightgray">o.scope.imager.ccd.state
 
-<p>Change the current state of the CCD:
+<p>2) Change the current state of the CCD:
 
 <p style="background-color:lightgray">o.scope.imager.ccd.start_task('set_state','state').join()
 
@@ -98,11 +99,11 @@ output #2:
 
 <p style="background-color:lightgray">state='online'|'standby'|'suspend'|'offline'
 
-<p>Check if the given capability is supported by the CCD (output: True|False):
+<p>3) Check if the given capability is supported by the CCD (output: True|False):
 
 <p style="background-color:lightgray">o.scope.imager.ccd.supports(cap)
 
-<p>Here <i>cap</i> can have one of the following values:
+<p>Here <pre style="background-color:lightgray">cap</pre> can have one of the following values:
 
 <p style="background-color:lightgray">cap='shutter'|'tec_stabilization'|'tec_set_power'|'tec_get_power'|'tec'|'ambient_temperature'|'chip_temperature'|'trigger_input'|'trigger_output'
 
