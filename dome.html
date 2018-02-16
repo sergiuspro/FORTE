@@ -50,7 +50,7 @@
 
 <p style="background-color:lightgray">o.dome.close_shutter()
 
-<p>3) Get the current shutter state (output: Open|Closed):
+<p>3) Get the current shutter state (output: open|closed|opening|closing|unknown):
 
 <p style="background-color:lightgray">o.dome.get_shutter_state()
 
@@ -74,9 +74,9 @@
 
 <p style="background-color:lightgray">o.dome.rotate_to(azimuth)
 
-<p>Here <i>azimuth</i> is the azimuth angle (float number) value starting with 0 at the north clockwise in eastern direction.
+<p>Here <i>azimuth</i> is the azimuth angle (float number) value from North through East.
 
-<p>5) Get the dome's slit center azimuth:
+<p>5) Get the dome's slit center azimuth from North through East:
 
 <p style="background-color:lightgray">o.dome.get_azimuth()
 
@@ -96,23 +96,23 @@
 
 <h4>Dome sensors</h4>
 
-<p>1) Get humidity:
+<p>1) Get relative humidity in %:
 
 <p style="background-color:lightgray">o.dome.get_humidity()
 
-<p>2) Get humidity temperature:
+<p>2) Get humidity sensor temperature in degrees Celsius:
 
 <p style="background-color:lightgray">o.dome.get_humidity_temperature()
 
-<p>3) Get pressure:
+<p>3) Get air pressure in hPa:
 
 <p style="background-color:lightgray">o.dome.get_pressure()
 
-<p>4) Get temperature inside the dome:
+<p>4) Get temperature inside the dome in degrees Celsius:
 
 <p style="background-color:lightgray">o.dome.get_temperature_in()
 
-<p>5) Get temperature outside the dome:
+<p>5) Get temperature outside the dome in degrees Celsius:
 
 <p style="background-color:lightgray">o.dome.get_temperature_out()
 
@@ -128,7 +128,7 @@
 
 <p style="background-color:lightgray">o.scope.dome.offset
 
-<p>2.2) Set new offset (in degrees) of the dome from the mount/telescope:
+<p>2.2) Set a new offset (in degrees) of the dome from the mount/telescope:
 
 <p style="background-color:lightgray">o.scope.dome.offset(degrees)
 
@@ -138,7 +138,7 @@
 
 <p style="background-color:lightgray">o.scope.dome.resolution
 
-<p>3.2) Set new azimuth encoder resolution:
+<p>3.2) Set a new azimuth encoder resolution:
 
 <p style="background-color:lightgray">o.scope.dome.resolution(resolution)
 
