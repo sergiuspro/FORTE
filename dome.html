@@ -34,17 +34,119 @@
 
 <h3>Dome commands</h3>
 
-<p>TBD
+<p>All dome-related commands begin with:
+
+<p style="background-color:lightgray">o.dome.
 
 <hr>
 
-<h4>TBD</h4>
+<h4>Dome shutter</h4>
 
-<p>TBD
+<p>1) Open the shutter:
+
+<p style="background-color:lightgray">o.dome.open_shutter()
+
+<p>2) Close the shutter:
+
+<p style="background-color:lightgray">o.dome.close_shutter()
+
+<p>3) Get the current shutter state (output: Open|Closed):
+
+<p style="background-color:lightgray">o.dome.get_shutter_state()
 
 <hr>
 
-<p> last updated: 15.10.2017
+<h4>Dome orientation</h4>
+
+<p>1) Rotate the dome clockwise:
+
+<p style="background-color:lightgray">o.dome.rotate_cw()
+
+<p>2) Rotate the dome counter-clockwise:
+
+<p style="background-color:lightgray">o.dome.rotate_ccw()
+
+<p>3) Stop dome rotation:
+
+<p style="background-color:lightgray">o.dome.stop()
+
+<p>4) Rotate the dome to the given azimuth:
+
+<p style="background-color:lightgray">o.dome.rotate_to(azimuth)
+
+<p>Here <i>azimuth</i> is the azimuth angle (float number) value starting with 0 at the north clockwise in eastern direction.
+
+<p>5) Get the dome's slit center azimuth:
+
+<p style="background-color:lightgray">o.dome.get_azimuth()
+
+<p>6) Start continuous synchronization of the dome with the mount/telescope:
+
+<p style="background-color:lightgray">o.dome.sync()
+
+<p>7) Permanently stop synchronization of the dome with the mount/telescope:
+
+<p style="background-color:lightgray">o.dome.stop_sync()
+
+<p>8) Check whether the dome is in permanent synchronization with the mount/telescope (output: True|False):
+
+<p style="background-color:lightgray">o.dome.is_in_sync()
+
+<hr>
+
+<h4>Dome sensors</h4>
+
+<p>1) Get humidity:
+
+<p style="background-color:lightgray">o.dome.get_humidity()
+
+<p>2) Get humidity temperature:
+
+<p style="background-color:lightgray">o.dome.get_humidity_temperature()
+
+<p>3) Get pressure:
+
+<p style="background-color:lightgray">o.dome.get_pressure()
+
+<p>4) Get temperature inside the dome:
+
+<p style="background-color:lightgray">o.dome.get_temperature_in()
+
+<p>5) Get temperature outside the dome:
+
+<p style="background-color:lightgray">o.dome.get_temperature_out()
+
+<hr>
+
+<h4>Other dome commands</h4>
+
+<p>1) Check the current state of the dome driver (output: online|standby|suspend|offline):
+
+<p style="background-color:lightgray">o.scope.dome.state
+
+<p>2.1) Get the current offset (in degrees) of the dome from the mount/telescope:
+
+<p style="background-color:lightgray">o.scope.dome.offset
+
+<p>2.2) Set new offset (in degrees) of the dome from the mount/telescope:
+
+<p style="background-color:lightgray">o.scope.dome.offset(degrees)
+
+<p>Here <i>degrees</i> is the new offset angle (float number) value either positive or negative.
+
+<p>3.1) Check the current azimuth encoder resolution:
+
+<p style="background-color:lightgray">o.scope.dome.resolution
+
+<p>3.2) Set new azimuth encoder resolution:
+
+<p style="background-color:lightgray">o.scope.dome.resolution(resolution)
+
+<p>Here <i>resolution</i> is the new azimuth encoder resolution value.
+
+<hr>
+
+<p> last updated: 16.02.2018
 
 </td>
 
