@@ -119,7 +119,7 @@ observer = S.Schmalz
 <p style="background-color:lightgray">whoami<br>
 groups
 
-<p>To enable FORTE server autostart on system startup create a service file:
+<p>For FORTE server autostart on system startup create a service file:
 
 <p style="background-color:lightgray">sudo gedit /etc/systemd/system/forte_server.service
 
@@ -141,7 +141,7 @@ RestartSec = 5<br>
 [Install]<br>
 WantedBy = multi-user.target
 
-<p>After editing the FORTE server service, you have to enable it (this will also create a symlink in the directory /etc/systemd/system/multi-user.target.wants):
+<p>After editing the FORTE server service, you have to enable its autostart on system startup (this will also create a symlink in the directory /etc/systemd/system/multi-user.target.wants):
 
 <p style="background-color:lightgray">sudo systemctl enable forte_server.service
 
