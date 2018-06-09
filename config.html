@@ -38,9 +38,45 @@
 
 <hr>
 
-<h4>forte.conf</h4>
+<h4>udev rules</h4>
 
 <p>TBD
+
+<hr>
+
+<h4>forte.conf</h4>
+
+<p>After the installation of FORTE create its configuration file by supplying pairs of observatory parameters and their values, here an example for a telescope setup, which consists of a Trimble GPS receiver, SiTech mount controller, and FLI CCD, filter wheel and focuser; make sure that there are <i>no spaces</i> as in "timer = trimble":
+
+<p style="background-color:lightgray">forte_conf.py timer=trimble mount=sitech ccd=fli cfw=fli foc=fli
+
+<p>For all valid observatory parameters and allowed values run:
+
+<p style="background-color:lightgray">forte_conf.py --help
+
+<p>Thereafter create and/or adjust all necessary sections and/or options in forte.conf. For example, you may need to fill in serial numbers of devices in their corresponding sections (to find the serial numbers of your devices use the shell command "lsusb -v" and find the "iSerial" entry in the corresponding device descriptor), e.g. for a FLI CCD:
+
+<p style="background-color:lightgray">[hardware.ccd.fli_ccd]
+<p style="background-color:lightgray">device = ML0051811
+
+<p>Fill in aperture and focal length of the telescope, e.g. for a 40-cm telescope with 922.8 mm focal length:
+
+<p style="background-color:lightgray">[imager]
+<p style="background-color:lightgray">aperture = 400.0
+<p style="background-color:lightgray">focal_length = 922.8
+
+<p>It is advisable to statically bind your timer and mount according to the symlinks from your udev rules, e.g.:
+
+<p style="background-color:lightgray">[hardware.timing.trimble_timer]
+<p style="background-color:lightgray">port = /dev/gps0
+<p style="background-color:lightgray">[hardware.mount.sitech_mount]
+<p style="background-color:lightgray">port = /dev/mount0
+
+<p>You may want to provide your observatory and observer names:
+
+<p style="background-color:lightgray">[observatory]
+<p style="background-color:lightgray">name = ISON-Castelgrande Observatory
+<p style="background-color:lightgray">observer = S.Schmalz
 
 <hr>
 
