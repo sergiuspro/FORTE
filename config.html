@@ -34,23 +34,23 @@
 
 <h3>Configuring FORTE</h3>
 
-<p>Before the first usage of FORTE you have to configure it.
+<p>Before the first usage of FORTE you have to configure it and its environment.
 
 <hr>
 
 <h4>udev rules</h4>
 
-<p>While your telescope setups ist powered on and connected to the USB port of your controlling PC, run:
+<p>While your telescope setup is powered on and connected to a USB port of your controlling PC, run:
 
 <p style="background-color:lightgray">lsusb -v
 
-<p>And (if available) find attributes "idVendor", "idProduct", "iProduct" and "iSerial" for each device of your telescope setup in its device descriptor.
+<p>And (whenever available) find attributes "idVendor", "idProduct", "iProduct" and "iSerial" for each device of your telescope setup in its device descriptor.
 
 <p>Then create your udev rules file (the filename should preferably start with "90-", but the rest is up to you):
 
 <p style="background-color:lightgray">sudo gedit /etc/udev/rules.d/90-telescope.rules
 
-<p>For each device write a corresponding rule (comment lines for your own rule descriptions are preceeded with #) using the found attributes (here "product" corresponds to "iProduct" and "serial" to "iSerial"), here an example for a telescope setup, which consists of a Trimble GPS receiver, SiTech mount controller, and FLI CCD, filter wheel and focuser:
+<p>For each device write a corresponding rule (comment lines for your own rule descriptions are preceeded with #) using the found attributes ("product" corresponds to "iProduct" and "serial" to "iSerial"), here an example for a telescope setup, which consists of a Trimble GPS receiver, SiTech mount controller, and FLI CCD, filter wheel and focuser:
 
 <p style="background-color:lightgray"># udev rules for telescope<br>
 <br>
@@ -68,6 +68,11 @@
 <br>
 # Trimble GPS receiver<br>
 # KERNEL=="ttyUSB*",ATTRS{idVendor}=="0403",ATTRS{idProduct}=="6001",ATTRS{product}=="TTL232R-3V3",ATTRS{serial}=="FTFAYICY",OWNER="root",GROUP="dialout",MODE="0660",SYMLINK="gps0"<br>
+
+<p>After editing your udev rules, you have to reload and trigger them:
+
+<p style="background-color:lightgray">sudo udevadm control --reload-rules<br>
+sudo udevadm trigger
 
 <hr>
 
@@ -107,9 +112,53 @@ observer = S.Schmalz
 
 <hr>
 
-<h4>Other configuration needs</h4>
+<h4>FORTE server service</h4>
 
-<p>TBD
+<p>Before you create the FORTE server service, find out your user and group names (you will need only the first group in the output list):
+
+<p style="background-color:lightgray">whoami<br>
+<p style="background-color:lightgray">groups
+
+<p>To enable FORTE server autostart on system startup create a service file:
+
+<p style="background-color:lightgray">sudo gedit /etc/systemd/system/forte_server.service
+
+<p>Write the service using the found user and group names:
+
+<p style="background-color:lightgray">[Unit]<br>
+Description = FORTE Telescope Control System<br>
+<br>
+[Service]<br>
+Type = simple<br>
+ExecStart = /usr/local/bin/forte_server.py localhost<br>
+StandardOutput = null<br>
+StandardError = inherit<br>
+User = ...<br>
+Group = ...<br>
+Restart = always<br>
+RestartSec = 5<br>
+<br>
+[Install]<br>
+WantedBy = multi-user.target
+
+<p>After editing the FORTE server service, you have to enable it (this will also create a symlink in the directory /etc/systemd/system/multi-user.target.wants):
+
+<p style="background-color:lightgray">sudo systemctl enable forte_server.service
+
+<p>To start, restart, stop or check your service:
+
+<p style="background-color:lightgray">sudo systemctl start forte_server.service<br>
+<p style="background-color:lightgray">sudo systemctl restart forte_server.service<br>
+<p style="background-color:lightgray">sudo systemctl stop forte_server.service<br>
+<p style="background-color:lightgray">sudo systemctl status forte_server.service
+
+<p>Without this service you would always have to start FORTE server manually by:
+
+<p style="background-color:lightgray">forte_server.py localhost
+
+<p>To stop any running instance of FORTER server:
+
+<p style="background-color:lightgray">killall forte_server.py
 
 <hr>
 
