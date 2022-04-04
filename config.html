@@ -54,7 +54,7 @@
 
 <p style="background-color:lightgray"># udev rules for telescope<br>
 <br>
-SUBSYSTEM=="usb",ATTRS{idVendor}=="0f18",OWNER="root",GROUP="dialout",MODE="0666"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0f18", OWNER="root", GROUP="dialout", MODE="0666"
 
 <p>If you installed FORTE to be used <u>with the FLIUSB</u> driver, then follow the instructions below:
 
@@ -63,19 +63,19 @@ SUBSYSTEM=="usb",ATTRS{idVendor}=="0f18",OWNER="root",GROUP="dialout",MODE="0666
 <p style="background-color:lightgray"># udev rules for telescope<br>
 <br>
 # FLI CCD<br>
-KERNEL=="fliusb*",ATTRS{idVendor}=="0f18",ATTRS{idProduct}=="000A",ATTRS{product}=="MicroLine 9000",ATTRS{serial}=="ML0051811",OWNER="root",GROUP="dialout",MODE="0660",SYMLINK="ccd0"<br>
+KERNEL=="fliusb*", ATTRS{idVendor}=="0f18", ATTRS{idProduct}=="000A", ATTRS{product}=="MicroLine 9000", ATTRS{serial}=="ML0051811", OWNER="root", GROUP="dialout", MODE="0660", SYMLINK="ccd0"<br>
 <br>
 # FLI filter wheel<br>
-KERNEL=="fliusb*",ATTRS{idVendor}=="0f18",ATTRS{idProduct}=="0007",ATTRS{product}=="CWF-5-7",OWNER="root",GROUP="dialout",MODE="0660",SYMLINK="cwf0"<br>
+KERNEL=="fliusb*", ATTRS{idVendor}=="0f18", ATTRS{idProduct}=="0007", ATTRS{product}=="CWF-5-7", OWNER="root", GROUP="dialout", MODE="0660", SYMLINK="cwf0"<br>
 <br>
 # FLI focuser<br>
-KERNEL=="fliusb*",ATTRS{idVendor}=="0f18",ATTRS{idProduct}=="0006",ATTRS{product}=="Atlas Digital Focuser",ATTRS{serial}=="AT0160211",OWNER="root",GROUP="dialout",MODE="0660",SYMLINK="foc0"<br>
+KERNEL=="fliusb*", ATTRS{idVendor}=="0f18", ATTRS{idProduct}=="0006", ATTRS{product}=="Atlas Digital Focuser", ATTRS{serial}=="AT0160211", OWNER="root", GROUP="dialout", MODE="0660", SYMLINK="foc0"<br>
 <br>
 # SiTech-II mount controller<br>
-KERNEL=="ttyUSB*",ATTRS{idVendor}=="0403",ATTRS{idProduct}=="6001",ATTRS{product}=="FT232R USB UART",ATTRS{serial}=="A600dU62",OWNER="root",GROUP="dialout",MODE="0660",SYMLINK="mount0"<br>
+KERNEL=="ttyUSB*", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{product}=="FT232R USB UART", ATTRS{serial}=="A600dU62", OWNER="root", GROUP="dialout", MODE="0660", SYMLINK="mount0"<br>
 <br>
 # Trimble GPS receiver<br>
-KERNEL=="ttyUSB*",ATTRS{idVendor}=="0403",ATTRS{idProduct}=="6001",ATTRS{product}=="TTL232R-3V3",ATTRS{serial}=="FTFAYICY",OWNER="root",GROUP="dialout",MODE="0660",SYMLINK="gps0"<br>
+KERNEL=="ttyUSB*", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{product}=="TTL232R-3V3", ATTRS{serial}=="FTFAYICY", OWNER="root", GROUP="dialout", MODE="0660", SYMLINK="gps0"<br>
 
 <p>After editing your udev rules, you have to reload and trigger them:
 
@@ -132,6 +132,10 @@ observer = S. Schmalz
 
 <p style="background-color:lightgray">whoami<br>
 groups
+
+<p>Add your 'username' (shown by the command 'whoami') to the group 'dialout':
+
+<p style="background-color:lightgray">sudo adduser username dialout
 
 <p>For FORTE server autostart on system startup create a service file:
 
