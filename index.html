@@ -35,14 +35,14 @@
 <h3>Installation under Ubuntu</h3>
 
 <p>Notice 1: FORTE (Facility for Operating Robotic TElescopes) is distributed under a proprietary license for ISON members only.
-<p>Notice 2: If you plan to use a FLI CCD camera along with the INDI Library driver, your computer must have Ubuntu version 15.10 or higher (check requirements at <a href="http://indilib.org/download/ubuntu.html">indilib.org</a> website).
-<p>Notice 3: Currently, this manual describes FORTE command line usage only and doesn't describe FORTE GUI and its installation dependencies.
+<p>Notice 2: This manual describes FORTE version 0.21.4.20211024 which runs on Python 3.
+<p>Notice 3: Currently, this manual describes FORTE command line usage only and doesn't describe FORTE GUI and installation of its dependencies.
 
 <hr>
 
 <h4>Installation of package dependencies: APEX</h4>
 
-<p>Install APEX as described in <a href="https://sergiuspro.github.io/APEX/">this documentation</a>.
+<p>Install APEX as described in <a href="https://sergiuspro.github.io/APEX/">this documentation</a>. WARNING: this documentation needs to be updated!
 
 <hr>
 
@@ -50,7 +50,7 @@
 
 <p>Install the package:
 
-<p style="background-color:lightgray">sudo apt install libusb-1.0.0-dev
+<p style="background-color:lightgray">sudo apt install libusb-1.0-0-dev
 
 <hr>
 
@@ -58,27 +58,27 @@
 
 <p>Install the package:
 
-<p style="background-color:lightgray">sudo pip install -U typing
+<p style="background-color:lightgray">sudo pip3 install -U typing
 
 <hr>
 
 <h4>Installation of FORTE server</h4>
 
-<p>Go to the folder where the tarball forte-0.16.4.tar.gz is stored and unpack it:
+<p>Go to the folder where the tarball forte-0.21.4.20211024.tar.gz is stored and unpack it:
 
-<p style="background-color:lightgray">tar xvzf forte-0.16.4.tar.gz
+<p style="background-color:lightgray">tar xvzf forte-0.21.4.20211024.tar.gz
 
-<p>A new folder forte-0.16.4 will be created with subfolders and files unpacked into it. Change to that folder:
+<p>A new folder forte-0.21.4.20211024 will be created with subfolders and files unpacked into it. Change to that folder:
 
-<p style="background-color:lightgray">cd forte-0.16.4
+<p style="background-color:lightgray">cd forte-0.21.4.20211024
 
 <p>Build it:
 
-<p style="background-color:lightgray">python setup.py build
+<p style="background-color:lightgray">python3 setup.py build
 
 <p>Install it (notice the sudo command!):
 
-<p style="background-color:lightgray">sudo python setup.py install
+<p style="background-color:lightgray">sudo python3 setup.py install
 
 <hr>
 
@@ -86,25 +86,25 @@
 
 <p>Notice: Installation of FORTE client must be done only, if you plan to use FORTE GUI; for FORTE command line usage installation of FORTE server is sufficient.
 
-<p>Go to the folder where the tarball forte_client-0.16.4.tar.gz is stored and unpack it:
+<p>Go to the folder where the tarball forte_client-0.21.4.20211024.tar.gz is stored and unpack it:
 
-<p style="background-color:lightgray">tar xvzf forte_client-0.16.4.tar.gz
+<p style="background-color:lightgray">tar xvzf forte_client-0.21.4.20211024.tar.gz
 
-<p>A new folder forte_client-0.16.4.tar.gz will be created with subfolders and files unpacked into it. Change to that folder:
+<p>A new folder forte_client-0.21.4.20211024.tar.gz will be created with subfolders and files unpacked into it. Change to that folder:
 
-<p style="background-color:lightgray">cd forte_client-0.16.4.tar.gz
+<p style="background-color:lightgray">cd forte_client-0.21.4.20211024
 
 <p>Build it:
 
-<p style="background-color:lightgray">python client_setup.py build
+<p style="background-color:lightgray">python3 client_setup.py build
 
 <p>Install it (notice the sudo command!):
 
-<p style="background-color:lightgray">sudo python client_setup.py install
+<p style="background-color:lightgray">sudo python3 client_setup.py install
 
 <hr>
 
-<p>last updated: 06.10.2021
+<p>last updated: 04.04.2022
 
 </td>
 
