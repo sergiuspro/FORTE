@@ -34,17 +34,69 @@
 
 <h3>Focuser commands</h3>
 
-<p>TBD
+<p>All focuser-related commands begin with:
+
+<p style="background-color:lightgray">o.scope.imager.foc.
 
 <hr>
 
-<h4>TBD</h4>
+<h4>Focuser commands related to its movement</h4>
 
-<p>TBD
+<p>1) Move the focuser by the specified value in mm relative to its current position (positive value – move outwards, negative value – move inwards), e.g.:
+
+<p style="background-color:lightgray">o.scope.imager.foc.move_by(-0.05)
+
+<p>2) Move the focuser to the specified position in mm relative to the home position, e.g.:
+
+<p style="background-color:lightgray">o.scope.imager.foc.move_to(0.1)
+
+<p>3) Move the focuser to the home position at 0 mm:
+
+<p style="background-color:lightgray">o.scope.imager.foc.reference_travel()
 
 <hr>
 
-<p> last updated: 15.10.2017
+<h4>Focuser commands related to its state</h4>
+
+<p>1) Get the current focuser position in mm relative to the home position (output: positive value – outward position, negative value – inward position):
+
+<p style="background-color:lightgray">o.scope.imager.foc.get_pos()
+
+<p>2) Get the last focuser position, the last movement direction and the last CCD filter used (output: a 3-tuple of values; direction value 'True' – outward movement, direction value 'False' – inward movement):
+
+<p style="background-color:lightgray">o.scope.imager.foc._get_state()
+
+<hr>
+
+<h4>Other focuser commands</h4>
+
+<p>1) Get the current state of the focuser (output: online|standby|suspend|offline):
+
+<p style="background-color:lightgray">o.scope.imager.foc.state
+
+<p>2) Get the current backlash value in mm:
+
+<p style="background-color:lightgray">o.scope.imager.foc.backlash
+
+<p>3) Get the current setting for the reference travel in the case of focuser initialization or focuser failure (output: True|False):
+
+<p style="background-color:lightgray">o.scope.imager.foc.ref_travel
+
+<p>4) Get the focuser model name:
+
+<p style="background-color:lightgray">o.scope.imager.foc.model
+
+<p>5) Get the focuser serial number:
+
+<p style="background-color:lightgray">o.scope.imager.foc.serial_no
+
+<p>6) Get the focuser termal sensor temperature in Kelvins:
+
+<p style="background-color:lightgray">o.scope.imager.foc.get_temperature()
+
+<hr>
+
+<p> last updated: 05.04.2022
 
 </td>
 
